@@ -51,12 +51,11 @@ hijri.new <- hijri[!grepl(2, hijri$months) &
 
 # calibrate the 29s and 30s of leap years (mind the new variable hijri.new1)
 
-hijri.new1 <- hijri.new[       !grepl("Safer", hijri.new$hijri.months)& # because when I write 2 it removes also 12 which is zilhicce
-                                 !grepl(4, hijri.new$months) & !grepl(6, hijri.new$months)&
-                                 !grepl(8, hijri.new$months)&
-                                 !grepl(10, hijri.new$months)
-                               |
-                                 !grepl(30, hijri.new$days) ,]  
+hijri.new1 <- hijri.new[!grepl("Safer", hijri.new$hijri.months)& # because when I write 2 it removes also 12 which is zilhicce
+                        !grepl(4, hijri.new$months) & !grepl(6, hijri.new$months)&
+                        !grepl(8, hijri.new$months)&
+                        !grepl(10, hijri.new$months)|
+                        !grepl(30, hijri.new$days) ,]  
 
 
 # assigning name of the days
