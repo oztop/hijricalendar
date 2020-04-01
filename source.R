@@ -1,6 +1,6 @@
 library(tidyverse)
 
-# Creating raw calendar
+# create raw calendar
 
 hijri <- expand.grid(days=1:30, months=1:12, years=1:1445)
 
@@ -38,7 +38,7 @@ hijri$leap <- ifelse(hijri$years%%30 == 2|
                      "Leap", "Normal"
 )
 
-### calibrating 29s and 30s of normal months (mind the new variable hijri.new)
+### calibrate the 29s and 30s of normal months (mind the new variable hijri.new)
 
 hijri.new <- hijri[!grepl(2, hijri$months) &
                      !grepl(4, hijri$months) &
@@ -49,7 +49,7 @@ hijri.new <- hijri[!grepl(2, hijri$months) &
                      !grepl(30, hijri$days) | !grepl("Normal", hijri$leap) ,]    
 
 
-# calirating the 29s and 30s of leap years (mind the new variable hijri.new1)
+# calibrate the 29s and 30s of leap years (mind the new variable hijri.new1)
 
 hijri.new1 <- hijri.new[       !grepl("Safer", hijri.new$hijri.months)& # because when I write 2 it removes also 12 which is zilhicce
                                  !grepl(4, hijri.new$months) & !grepl(6, hijri.new$months)&
