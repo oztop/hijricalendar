@@ -79,3 +79,7 @@ hijri.new1$weekdays <- case_when(
 # adding the gregorian calendar
 
 hijri.new1$gregorian <-  seq(as.Date("0622/07/19"), by = "day", length.out = 512060)
+
+# print
+
+print(hijri.new1)
